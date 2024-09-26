@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.phone.model.dto.Phone,java.util.List"%>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,18 +16,13 @@
 		<th>모델</th>
 		<th>가격</th>
 	</tr>
-	<%
-		List<Phone> list = (List) request.getAttribute("list");
-		for(Phone phone: list){
-	%>
-	<tr>
-		<td><%=phone.getSerialNumber() %></td>
-		<td><a href="/simple_phone/phone?act=detail&serial_number=<%=phone.getSerialNumber()%>"><%=phone.getModel() %></a></td>
-		<td><%=phone.getPrice() %></td>
-	</tr>
-	<%
-		}
-	%>
+	<c:forEach var="phone" items="${list}">
+		<tr>
+			<td>${phone.serialNumber}</td>
+			<td><a href="/simple_phone/phone?act=detail&serial_number=${phone.serialNumber}">${phone.model}</a></td>
+			<td>${phone.price}</td>
+		</tr>
+	</c:forEach>
 </table>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.phone.model.dto.Phone,java.util.List"%>
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="jakarta.tags.core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,23 +12,19 @@
 <a href="/simple_phone/phone?act=list">목록으로</a>
 <table>
 	<tr>
-		
 		<th>시리얼넘버</th>
 		<th>모델</th>
 		<th>가격</th>
 		<th>설명</th>
 	</tr>
-	<%
-		Phone phone = (Phone) request.getAttribute("phone");
-	%>
 	<tr>
-		<td><%=phone.getSerialNumber() %></td>
-		<td><%=phone.getModel() %></td>
-		<td><%=phone.getPrice() %></td>
-		<td><%=phone.getDescription() %></td>
+		<td>${phone.serialNumber}</td>
+		<td>${phone.model}</td>
+		<td>${phone.price}</td>
+		<td>${phone.description}</td>
 	</tr>
 </table>
-<a href="/simple_phone/phone?act=delete&serial_number=<%=phone.getSerialNumber()%>">삭제</a>
-<a href="/simple_phone/phone?act=mvUpdate&serial_number=<%=phone.getSerialNumber()%>">수정</a>
+<a href="/simple_phone/phone?act=delete&serial_number=${phone.serialNumber}">삭제</a>
+<a href="/simple_phone/phone?act=mvUpdate&serial_number=${phone.serialNumber}">수정</a>
 </body>
 </html>

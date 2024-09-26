@@ -3,6 +3,7 @@ package com.phone.model.dao;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.phone.model.dto.Member;
 import com.phone.model.dto.Phone;
 
 public interface PhoneDao {
@@ -31,5 +32,11 @@ public interface PhoneDao {
 	 * 수정
 	 */
 	int update(Phone phone) throws SQLException;
+	
+	/*
+	 * 아이디, 비밀번호로 유저정보 조회
+	 */
+	
+	Member login(Member loginInfo) throws SQLException;
 	
 }

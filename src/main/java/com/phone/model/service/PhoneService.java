@@ -3,6 +3,7 @@ package com.phone.model.service;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.phone.model.dto.Member;
 import com.phone.model.dto.Phone;
 
 public interface PhoneService {
@@ -24,5 +25,7 @@ public interface PhoneService {
 	
 	//휴대폰 정보 수정
 	int update(Phone phone) throws SQLException;
+	
+	Member login(Member loginInfo) throws SQLException;
 	
 }
